@@ -216,7 +216,7 @@ namespace Rivet {
 
 	HHSys.jets25 = jets.jetsByPt( Cuts::pT > 25.0 );
 	HHSys.jets30 = jets.jetsByPt( Cuts::pT > 30.0 );
-	std::cout<<" I am Here "<<std::endl;
+	
 	if( sum.pt() > 0.1 ) { HHSys.errorCode = HH::MOMENTUM_CONSERVATION ; MSG_WARNING(" No momentum conservation up to 0.1 MeV : sum %f  " << sum.pt() ); return HHSys; }
 	
 	return HHSys;
@@ -233,7 +233,7 @@ namespace Rivet {
 	if(m_event%10==0) std::cout<<" Number of events "<<m_event<<std::endl; 
 
 	FourMomentum hh = HHSys.H1.momentum() + HHSys.H2.momentum();
-	std::cout<< " HH mass : "<< hh.mass() <<std::endl;
+	
 	HH_m->fill(hh.mass(), weight);
 	HH_pT->fill(  hh.pt(), weight); 
 	
